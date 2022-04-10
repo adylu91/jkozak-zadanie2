@@ -17,11 +17,10 @@ public class Pracownik {
 
     @Override
     public String toString(){
-        System.out.println("Adam");
-        return "";
+        return imie + " " + nazwisko + " " + placa + " " + plec + " " + dzial;
     }
 
     public boolean czyPracujeWDziale(int numerDzialu){
-        return numerDzialu==dzial;
+        return numerDzialu == dzial;
     }
 }
