@@ -9,8 +9,9 @@ public class Main {
         System.out.println(pracownik1.czyPracujeWDziale(3));
         System.out.println(pracownik1.toString());
         Kadry k = new Kadry();
-        for(int i=0; i<101; i++) {
+        for(int i=0; i<10; i++) {
             k.dodajPracownika(pracownik1);
         }
+        k.dodajPracownikaInteraktywnie();
     }
 }

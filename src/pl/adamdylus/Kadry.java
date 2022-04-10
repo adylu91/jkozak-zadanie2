@@ -1,5 +1,7 @@
 package pl.adamdylus;
 
+import java.util.Scanner;
+
 public class Kadry {
     private Pracownik[] pracownicy_;
     private int zatrudnienie_;
@@ -28,5 +30,27 @@ public class Kadry {
                 break;
             }
         }
+    }
+    public void dodajPracownikaInteraktywnie(){
+        String imie;
+        String nazwisko;
+        double placa;
+        char plec;
+        int dzial;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Podaj imie pracownika:");
+        imie = scanner.nextLine();
+        System.out.println("Podaj nazwisko pracownika:");
+        nazwisko = scanner.nextLine();
+        System.out.println("Podaj place:");
+        placa = Double.parseDouble(scanner.nextLine());
+        System.out.println("Podaj plec:");
+        plec = scanner.nextLine().charAt(0);
+        System.out.println("Podaj dzial:");
+        dzial = Integer.parseInt(scanner.nextLine());
+
+        dodajPracownika(new Pracownik(imie,nazwisko,placa,plec,dzial));
+
     }
 }
