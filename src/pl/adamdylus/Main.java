@@ -15,5 +15,6 @@ public class Main {
         }
         k.dodajPracownikaInteraktywnie();
         k.importujZPlikuTekstowego("pracownicy.txt");
+        System.out.println("Sredni zarobek: " + k.sredniZarobek());
     }
 }

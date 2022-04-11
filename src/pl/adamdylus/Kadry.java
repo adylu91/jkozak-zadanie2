@@ -2,6 +2,7 @@ package pl.adamdylus;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Kadry {
@@ -10,7 +11,7 @@ public class Kadry {
 
     public Kadry() {
         this.pracownicy_ = new Pracownik[100];
-        this.zatrudnienie_ = this.pracownicy_.length;
+        this.zatrudnienie_ = 0;
     }
 
     public void dodajPracownika(Pracownik pracownik){
@@ -29,6 +30,8 @@ public class Kadry {
             if(pracownicy_[i] == null){
                 pracownicy_[i] = pracownik;
                 System.out.println("Dodano pracownika numer: " + Math.addExact(i,1));
+                zatrudnienie_ += 1;
+                System.out.println("Aktualizacja ilosci pracownikow firmy: " + zatrudnienie_);
                 break;
             }
         }
@@ -67,5 +70,14 @@ public class Kadry {
             nextLineInt++;
         }
         System.out.println("Wczytano z pliku: " + nazwaPliku);
+    }
+    public double sredniZarobek(){
+        float suma = 0;
+        for(int i=0; i<pracownicy_.length; i++){
+            if(pracownicy_[i]!=null)
+                suma += pracownicy_[i].getPlaca();
+        }
+        System.out.println(suma);
+        return suma / zatrudnienie_;
     }
 }

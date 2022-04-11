@@ -3,7 +3,7 @@ package pl.adamdylus;
 public class Pracownik {
     private String imie;
     private String nazwisko;
-    private Double placa;
+    private double placa;
     private char plec;
     private int dzial;
 
@@ -13,6 +13,10 @@ public class Pracownik {
         this.placa = placa;
         this.plec = plec;
         this.dzial = dzial;
+    }
+
+    public Double getPlaca() {
+        return placa;
     }
 
     @Override
