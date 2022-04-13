@@ -3,7 +3,9 @@ package pl.adamdylus;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Kadry {
     private Pracownik[] pracownicy_;
@@ -77,7 +79,22 @@ public class Kadry {
             if(pracownicy_[i]!=null)
                 suma += pracownicy_[i].getPlaca();
         }
-        System.out.println(suma);
         return suma / zatrudnienie_;
+    }
+    public float sredniZarobek(int dzial){
+        float suma = 0;
+        for(int i=0; i<pracownicy_.length; i++){
+            if(pracownicy_[i]!=null && pracownicy_[i].getDzial() == dzial)
+                suma += pracownicy_[i].getPlaca();
+        }
+        return suma / zatrudnienie_;
+    }
+    public Set<Integer> dajDzialy(){
+        Set<Integer> dzialy = new HashSet<Integer>();
+        for(int i=0; i<pracownicy_.length; i++) {
+            if (pracownicy_[i] != null)
+                dzialy.add(pracownicy_[i].getDzial());
+        }
+        return dzialy;
     }
 }

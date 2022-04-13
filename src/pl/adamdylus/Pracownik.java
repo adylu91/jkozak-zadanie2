@@ -19,6 +19,10 @@ public class Pracownik {
         return placa;
     }
 
+    public int getDzial() {
+        return dzial;
+    }
+
     @Override
     public String toString(){
         return imie + " " + nazwisko + " " + placa + " " + plec + " " + dzial;
