@@ -1,11 +1,25 @@
 package pl.adamdylus;
 
-public class Pracownik {
+import java.io.Serializable;
+
+public class Pracownik implements Serializable {
     private String imie;
     private String nazwisko;
     private double placa;
     private char plec;
     private int dzial;
+
+    public String getImie() {
+        return imie;
+    }
+
+    public String getNazwisko() {
+        return nazwisko;
+    }
+
+    public char getPlec() {
+        return plec;
+    }
 
     public Pracownik(String imie, String nazwisko, Double placa, char plec, int dzial) {
         this.imie = imie;

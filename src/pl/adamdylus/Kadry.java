@@ -1,8 +1,6 @@
 package pl.adamdylus;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Arrays;
+import java.io.*;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -10,6 +8,7 @@ import java.util.Set;
 public class Kadry {
     private Pracownik[] pracownicy_;
     private int zatrudnienie_;
+    private static String nazwaPlikuSerializacji = "nazwa.ser";
 
     public Kadry() {
         this.pracownicy_ = new Pracownik[100];
@@ -97,4 +96,24 @@ public class Kadry {
         }
         return dzialy;
     }
-}
+    public void pisz(){
+        for(Pracownik p: pracownicy_){
+            if(p != null){
+                System.out.println(p.getImie() +" "+ p.getNazwisko() +" "+ p.getPlec() +" "+ p.getPlaca());
+            }
+        }
+    }
+    public void zapiszDoPliku() throws IOException {
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(nazwaPlikuSerializacji));
+        out.writeObject(pracownicy_);
+        out.close();
+    }
+    public void odczytZPliku() throws IOException, ClassNotFoundException {
+        Pracownik[] p = null;
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(nazwaPlikuSerializacji));
+        p = (Pracownik[]) in.readObject();
+        in.close();
+        for (Pracownik x : p){
+            if(x != null) dodajPracownika(x);
+        }
+    }}
